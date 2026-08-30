@@ -43,6 +43,16 @@ a { color:var(--accent); }
 .big { font-size:1.6rem; font-weight:700; letter-spacing:-.02em; }
 .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); gap:14px; }
 .note { border-left:3px solid var(--warn); padding-left:14px; color:var(--muted); font-size:.9rem; }
+.tabs { display:flex; gap:6px; margin:26px 0 4px; border-bottom:1px solid var(--line); }
+.tab { appearance:none; background:none; border:0; border-bottom:2px solid transparent;
+  color:var(--muted); font:inherit; font-size:.92rem; font-weight:600; letter-spacing:-.01em;
+  padding:9px 14px; cursor:pointer; margin-bottom:-1px; }
+.tab:hover { color:var(--ink); }
+.tab.is-on { color:var(--ink); border-bottom-color:var(--accent); }
+.panel { display:none; }
+.panel.is-on { display:block; }
+.panel > h2:first-child { margin-top:1.4em; }
+@media print { .tabs { display:none; } .panel { display:block !important; } }
 footer { margin-top:50px; color:var(--muted); font-size:.8rem; border-top:1px solid var(--line);
   padding-top:16px; }
 </style></head><body><div class="wrap">
@@ -53,6 +63,12 @@ footer { margin-top:50px; color:var(--muted); font-size:.8rem; border-top:1px so
 kitchen. Carcasses and hinges stay. Updated 30 August 2026.</p>
 </header>
 
+<nav class="tabs" role="tablist">
+  <button class="tab is-on" role="tab" aria-selected="true" aria-controls="p-schema" id="t-schema">Kitchen schema</button>
+  <button class="tab" role="tab" aria-selected="false" aria-controls="p-prices" id="t-prices">Prices</button>
+</nav>
+
+<section id="p-schema" class="panel is-on" role="tabpanel" aria-labelledby="t-schema">
 <h2>What the job is</h2>
 <div class="card">
 <p><strong>20 panels</strong> across three runs — 11 hinged doors, 6 drawer fronts, 2 fixed panels
@@ -124,16 +140,16 @@ width × height. Existing fronts are 16 mm.</p>
   <rect x="30" y="216" width="92" height="15" fill="#F2EEE6" stroke="#1B2A33" stroke-width="1"/>
   <text x="76" y="227" font-size="7.5" fill="#1B2A33" text-anchor="middle">80 × 12.5 fixed</text>
   <rect x="30" y="231" width="92" height="65" fill="#fff" stroke="#1B2A33" stroke-width="1"/>
-  <line x1="30" y1="267" x2="122" y2="267" stroke="#1B2A33" stroke-width="0.7" stroke-dasharray="3 2"/>
-  <text x="76" y="252" font-size="7.5" fill="#1B2A33" text-anchor="middle">80 × 31</text>
-  <text x="76" y="283" font-size="7.5" fill="#1B2A33" text-anchor="middle">80 × 25.5</text>
-  <text x="76" y="292" font-size="6.5" fill="#54646F" text-anchor="middle">joined — one pull-out</text>
+  <line x1="30" y1="260" x2="122" y2="260" stroke="#1B2A33" stroke-width="0.7" stroke-dasharray="3 2"/>
+  <text x="76" y="249" font-size="7.5" fill="#1B2A33" text-anchor="middle">80 × 25.5</text>
+  <text x="76" y="281" font-size="7.5" fill="#1B2A33" text-anchor="middle">80 × 31</text>
+  <text x="76" y="290" font-size="6.5" fill="#54646F" text-anchor="middle">joined — one pull-out</text>
   <circle cx="36" cy="222" r="5" fill="#1B2A33"/>
   <text x="36" y="224.5" font-size="6.5" font-weight="700" fill="#fff" text-anchor="middle">6</text>
-  <circle cx="36" cy="240" r="5" fill="#1B2A33"/>
-  <text x="36" y="242.5" font-size="6.5" font-weight="700" fill="#fff" text-anchor="middle">7</text>
-  <circle cx="36" cy="275" r="5" fill="#1B2A33"/>
-  <text x="36" y="277.5" font-size="6.5" font-weight="700" fill="#fff" text-anchor="middle">8</text>
+  <circle cx="36" cy="237" r="5" fill="#1B2A33"/>
+  <text x="36" y="239.5" font-size="6.5" font-weight="700" fill="#fff" text-anchor="middle">7</text>
+  <circle cx="36" cy="266" r="5" fill="#1B2A33"/>
+  <text x="36" y="268.5" font-size="6.5" font-weight="700" fill="#fff" text-anchor="middle">8</text>
 
   <!-- Cabinet 5 dishwasher -->
   <rect x="122" y="216" width="58" height="80" fill="#fff" stroke="#1B2A33" stroke-width="1"/>
@@ -179,7 +195,7 @@ width × height. Existing fronts are 16 mm.</p>
   </g>
 
   <!-- fixed end panel, right end -->
-  <rect x="340.5" y="358" width="28.75" height="104" fill="#F2EEE6" stroke="#C1741A" stroke-width="1.4"/>
+  <rect x="340.5" y="356" width="28.75" height="106" fill="#F2EEE6" stroke="#C1741A" stroke-width="1.4"/>
   <text x="355" y="410" font-size="7" fill="#C1741A" text-anchor="middle" transform="rotate(-90 355 410)">25 × 92 fixed</text>
 
   <!-- hinge bars -->
@@ -250,7 +266,7 @@ width × height. Existing fronts are 16 mm.</p>
   <text x="50" y="534" font-size="7.5" fill="#1B2A33">stock FAKTUM size</text>
 
   <rect x="150" y="526" width="14" height="10" fill="#fff" stroke="#C1741A" stroke-width="1.4"/>
-  <text x="170" y="534" font-size="7.5" fill="#C1741A">cut to measure</text>
+  <text x="170" y="534" font-size="7.5" fill="#C1741A">cut on site</text>
 
   <rect x="260" y="526" width="14" height="10" fill="url(#appl)" stroke="#1B2A33" stroke-width="1"/>
   <text x="280" y="534" font-size="7.5" fill="#33454F">appliance, no front</text>
@@ -267,19 +283,23 @@ width × height. Existing fronts are 16 mm.</p>
 </svg>
 </div>
 
+</section>
+
+<section id="p-prices" class="panel" role="tabpanel" aria-labelledby="t-prices">
 <h2>Cost by supplier</h2>
 <div class="card">
 <div class="grid">
-  <div><span class="pill win">Cheapest priced</span><div class="big">£1,826.02</div>
-    Kitchen Door Workshop, panels 1–20, delivery free over £500</div>
-  <div><span class="pill">Faktum specialist</span><div class="big">£2,064.00</div>
-    Faktum UK, panels 1–20, before plinth</div>
-  <div><span class="pill">Faktum UK, all in</span><div class="big">£2,280.76</div>
-    panels 1–20 plus 4.1 m of plinth</div>
+  <div><span class="pill win">Kitchen Door Workshop</span><div class="big">£1,972.60</div>
+    panels 1–20 plus 4.1 m of plinth, delivery free over £500</div>
+  <div><span class="pill">Faktum UK</span><div class="big">£2,280.76</div>
+    panels 1–20 plus 4.1 m of plinth, delivery not published</div>
+  <div><span class="pill">Difference</span><div class="big">£308.16</div>
+    what the FAKTUM-specific fit costs you</div>
 </div>
-<p class="note" style="margin-top:18px">Both quotes are for <strong>variant A</strong>, where sink-wall
-panels 7 and 8 are two separate drawer fronts. Variant B, one tall 80 × 57 front, comes to
-£2,011.00 at Faktum UK and £1,820.49 at Kitchen Door Workshop.</p>
+<p class="note" style="margin-top:18px">Sink-wall panels 7 and 8 are <strong>two stacked fronts on
+one pull-out</strong>, smaller above and larger below, matching the cooking-wall stack. Ordering a
+single tall 80 × 57 front instead would save £53.00 at Faktum UK and £5.53 at
+Kitchen Door Workshop.</p>
 </div>
 
 <h2>Full pricing, panel by panel</h2>
@@ -322,15 +342,15 @@ panels 7 and 8 are two separate drawer fronts. Variant B, one tall 80 × 57 fron
       <td class="n"><a href="https://faktum.co.uk/product/drawer-front-u12-80x13">£73.00</a></td><td class="n">£73.00</td>
       <td class="n">£44.78</td><td class="n">£44.78</td></tr>
 <tr>
-      <td class="no">7</td><td class="run">Sink</td><td>Drawer front</td>
-      <td class="n">80 × 31</td><td class="n">1</td>
-      <td class="n"><a href="https://faktum.co.uk/product/drawer-front-u12-80x31">£99.00</a></td><td class="n">£99.00</td>
-      <td class="n">£86.16</td><td class="n">£86.16</td></tr>
-<tr>
-      <td class="no">8</td><td class="run">Sink</td><td>Drawer front</td>
+      <td class="no">7</td><td class="run">Sink</td><td>Drawer front, upper</td>
       <td class="n">80 × 25.5</td><td class="n">1</td>
       <td class="n"><a href="https://faktum.co.uk/product/drawer-front-u12-80x25">£89.00</a></td><td class="n">£89.00</td>
       <td class="n">£69.49</td><td class="n">£69.49</td></tr>
+<tr>
+      <td class="no">8</td><td class="run">Sink</td><td>Drawer front, lower</td>
+      <td class="n">80 × 31</td><td class="n">1</td>
+      <td class="n"><a href="https://faktum.co.uk/product/drawer-front-u12-80x31">£99.00</a></td><td class="n">£99.00</td>
+      <td class="n">£86.16</td><td class="n">£86.16</td></tr>
 <tr>
       <td class="no">9</td><td class="run">Sink</td><td>Dishwasher door</td>
       <td class="n">50 × 70</td><td class="n">1</td>
@@ -353,26 +373,29 @@ panels 7 and 8 are two separate drawer fronts. Variant B, one tall 80 × 57 fron
       <td class="n">£110.87</td><td class="n">£110.87</td></tr>
 <tr class="alt">
       <td class="no">7+8</td><td class="run">Sink</td>
-      <td>One tall pull-out front <span class="tag">variant B</span></td>
+      <td>One tall pull-out front <span class="tag">instead of 7 + 8</span></td>
       <td class="n">80 × 57</td><td class="n">1</td>
       <td class="n"><a href="https://faktum.co.uk/product/drawer-front-u12-80x57">£135.00</a></td><td class="n">£135.00</td>
       <td class="n">£150.12</td><td class="n">£150.12</td></tr>
 <tr><td class="no">—</td><td class="run">Both</td><td>Plinth, both base runs</td>
       <td class="n">4.1 m total</td><td class="n">1</td>
       <td class="n"><a href="https://faktum.co.uk/product/plinth-by-the-mm">£216.76</a></td><td class="n">£216.76</td>
-      <td class="n" colspan="2">not yet priced</td></tr>
+      <td class="n"><a href="https://www.kitchendoorworkshop.co.uk/accessories/plinth-kickboard/cambio-bella-plinth/">£146.58</a></td><td class="n">£146.58</td></tr>
 </tbody>
 <tfoot>
-  <tr><td colspan="5">Panels 1–20, variant A</td>
+  <tr><td colspan="5">Panels 1–20</td>
       <td class="n"></td><td class="n">£2,064.00</td>
       <td class="n"></td><td class="n">£1,826.02</td></tr>
   <tr><td colspan="5">Panels 1–20 + plinth</td>
       <td class="n"></td><td class="n">£2,280.76</td>
-      <td class="n"></td><td class="n">£1,826.02 + plinth</td></tr>
+      <td class="n"></td><td class="n">£1,972.60</td></tr>
 </tfoot>
 </table>
 </div>
-<p class="note" style="margin-top:16px">Faktum UK prices link straight to the product page and were
+<p class="note" style="margin-top:16px">Plinth is 4.1 m over both base runs at 145 mm high.
+Faktum UK cuts it by the millimetre — 2 × 1900 mm plus 1 × 300 mm at their £39.00 minimum.
+Kitchen Door Workshop sells the matching Cambio plinth in 2540 mm lengths, so two cover the run.
+Faktum UK prices link straight to the product page and were
 read from those pages on 30 August 2026. Every size is a listed catalogue item and shows in stock.
 Kitchen Door Workshop has no per-size list — the figures come from the
 <a href="https://www.kitchendoorworkshop.co.uk/kitchen-doors/cambio-handleless-super-matt-white/">Handleless Super Matt White</a> pricing tool at those exact millimetre sizes.
@@ -437,8 +460,6 @@ you to reuse the old hinges.</p>
 <h2>Still open</h2>
 <div class="card">
 <ol>
-<li><strong>Panels 7 and 8 on the sink wall</strong> — one tall 80 × 57 pull-out front, or two
-stacked fronts at 80 × 31 and 80 × 25.5. Both are priced above.</li>
 <li><strong>Panel 20 is cut on site.</strong> It is ordered as a tenth 30 × 92 door blank and
 trimmed to 25 wide, which keeps the grip line running to the end of the run. A made-to-measure
 flat side panel would be cheaper but would break that line.</li>
@@ -446,9 +467,15 @@ flat side panel would be cheaper but would break that line.</li>
 <li><strong>Which white</strong> — Faktum UK does not publish a sheen for its whites. Get the free
 swatch kit from both before committing.</li>
 <li><strong>Plinth height</strong> — priced at 145 mm, the usual FAKTUM leg height. Confirm on site.</li>
-<li><strong>Kitchen Door Workshop plinth</strong> — not yet priced. Faktum UK is £216.76 for 4.1 m.</li>
+<li><strong>Faktum UK delivery cost and lead time</strong> — neither is published anywhere on
+their site. Ask before ordering. Kitchen Door Workshop is free over £500 and quotes a delivery date
+at checkout.</li>
+<li><strong>Noremax</strong> is quote-only with a £215 minimum and needs a human to request a
+price. On profile and finish it is the closest match to the brief after these two.</li>
 </ol>
 </div>
+
+</section>
 
 <footer>
 Prices read from supplier sites on 30 August 2026 and not guaranteed. Noremax and Superfront are
@@ -456,4 +483,23 @@ quote-only; Ogony shows no UK shipping. Built from
 <code>outputs/projects-personal/ikea-kitchen-london</code>.
 </footer>
 
-</div></body></html>
+</div>
+<script>
+(function () {
+  var tabs = [].slice.call(document.querySelectorAll(".tab"));
+  function show(id) {
+    tabs.forEach(function (t) {
+      var on = t.getAttribute("aria-controls") === id;
+      t.classList.toggle("is-on", on);
+      t.setAttribute("aria-selected", on ? "true" : "false");
+      document.getElementById(t.getAttribute("aria-controls")).classList.toggle("is-on", on);
+    });
+    history.replaceState(null, "", id === "p-prices" ? "#prices" : "#schema");
+  }
+  tabs.forEach(function (t) {
+    t.addEventListener("click", function () { show(t.getAttribute("aria-controls")); });
+  });
+  if (location.hash === "#prices") show("p-prices");
+})();
+</script>
+</body></html>
