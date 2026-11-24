@@ -53,15 +53,19 @@ a { color:var(--accent); }
 .panel { display:none; }
 .panel.is-on { display:block; }
 .panel > h2:first-child { margin-top:1.4em; }
-.d-types { display:grid; grid-template-columns:repeat(auto-fit,minmax(195px,1fr)); gap:12px; margin:14px 0 18px; }
+.d-types { display:grid; grid-template-columns:repeat(auto-fit,minmax(160px,1fr)); gap:10px; margin:14px 0 18px; }
 .d-type { appearance:none; text-align:left; background:var(--card); border:2px solid var(--line);
-  border-radius:10px; padding:12px; cursor:pointer; font:inherit; color:var(--ink);
+  border-radius:10px; padding:10px 12px; cursor:pointer; font:inherit; color:var(--ink);
   transition:border-color .15s, box-shadow .15s; }
 .d-type:hover { border-color:var(--accent); }
 .d-type.is-on { border-color:var(--accent); box-shadow:0 0 0 3px color-mix(in srgb, var(--accent) 18%, transparent); }
-.d-type svg { display:block; width:100%; height:62px; background:var(--sheet); border-radius:6px; margin-bottom:8px; }
-.d-type strong { display:block; font-size:.92rem; }
-.d-type span { display:block; font-size:.8rem; color:var(--muted); margin-top:2px; }
+.d-type strong { display:block; font-size:.9rem; }
+.d-type span { display:block; font-size:.77rem; color:var(--muted); margin-top:2px; }
+.d-hero { display:block; width:100%; border-radius:10px; border:1px solid var(--line); margin:10px 0 16px; background:var(--sheet); }
+.d-order { display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:10px; margin:10px 0 6px; }
+.d-ord { border:1px solid var(--line); border-radius:8px; padding:9px 11px; font-size:.83rem; background:var(--card); }
+.d-ord strong { display:block; font-size:.86rem; margin-bottom:2px; }
+.d-ord.is-first { border-color:var(--warn); background:color-mix(in srgb, var(--warn) 8%, transparent); }
 .d-pane { display:none; }
 .d-pane.is-on { display:block; }
 .d-steps { display:grid; grid-template-columns:repeat(auto-fit,minmax(320px,1fr)); gap:16px; margin:12px 0 22px; }
@@ -125,7 +129,7 @@ is on the Order tab.</p>
   <button class="tab is-on" role="tab" aria-selected="true" aria-controls="p-schema" id="t-schema">Kitchen schema</button>
   <button class="tab" role="tab" aria-selected="false" aria-controls="p-order" id="t-order">Order</button>
   <button class="tab" role="tab" aria-selected="false" aria-controls="p-3d" id="t-3d">3D view</button>
-  <button class="tab" role="tab" aria-selected="false" aria-controls="p-drawers" id="t-drawers">Remove drawer fronts</button>
+  <button class="tab" role="tab" aria-selected="false" aria-controls="p-drawers" id="t-drawers">Install guide</button>
 </nav>
 
 <section id="p-schema" class="panel is-on" role="tabpanel" aria-labelledby="t-schema">
@@ -862,190 +866,243 @@ start();
 </section>
 
 <section id="p-drawers" class="panel" role="tabpanel" aria-labelledby="t-drawers">
-<h2>Removing IKEA FAKTUM drawer fronts</h2>
-<p class="muted">Applies to <strong>Panels 1, 2, 3, 4 and 7</strong>. Pull the drawer out and check the <strong>outside</strong> of the metal drawer side near the front, then pick the matching cap below.</p>
+<h2>Visual replacement guide — all 19 fronts + 3 plinths</h2>
+<p class="muted">Swap old 16 mm IKEA FAKTUM fronts for your new 22 mm Faktum UK U12 Alpine White fronts. Remember the golden rule: <strong>Base fronts = milled grip on TOP. Wall doors = milled grip at the BOTTOM.</strong></p>
 
-<div class="d-types" role="tablist" aria-label="Drawer hardware type">
-  <button class="d-type is-on" data-dtype="d-gen1" role="tab" aria-selected="true">
-    <svg viewBox="0 0 220 66" xmlns="http://www.w3.org/2000/svg">
-      <rect x="16" y="12" width="188" height="42" rx="3" fill="#dfe6ed" stroke="#64748b" stroke-width="1.5"/>
-      <rect x="16" y="12" width="14" height="42" fill="#cbd5e1" stroke="#64748b" stroke-width="1.5"/>
-      <rect x="38" y="20" width="52" height="26" rx="2.5" fill="#475569" stroke="#1e293b" stroke-width="1.8"/>
-      <path d="M46 25 Q43 33 46 41" fill="none" stroke="#fff" stroke-width="1.6"/>
-      <polygon points="46,23 43,27 48,27" fill="#fff"/>
-      <polygon points="46,43 43,39 48,39" fill="#fff"/>
-      <text x="148" y="31" text-anchor="middle" font-size="9" fill="#475569">your kitchen ✓</text>
-      <text x="148" y="43" text-anchor="middle" font-size="8.5" fill="#64748b">part 117533</text>
-    </svg>
-    <strong>A. Flap with curved ↕ arrow (your drawers)</strong>
-    <span>RATIONELL (2005–2011) · Rotate UP 90° flat → pull out</span>
-  </button>
-
-  <button class="d-type" data-dtype="d-gen2" role="tab" aria-selected="false">
-    <svg viewBox="0 0 220 66" xmlns="http://www.w3.org/2000/svg">
-      <rect x="16" y="12" width="188" height="42" rx="3" fill="#dfe6ed" stroke="#64748b" stroke-width="1.5"/>
-      <rect x="16" y="12" width="14" height="42" fill="#cbd5e1" stroke="#64748b" stroke-width="1.5"/>
-      <rect x="38" y="22" width="66" height="22" rx="2.5" fill="#94a3b8" stroke="#1e293b" stroke-width="1.8"/>
-      <text x="71" y="36" text-anchor="middle" font-size="9" font-weight="700" fill="#fff">FLAT CAP</text>
-      <text x="155" y="31" text-anchor="middle" font-size="9" fill="#475569">no arrows</text>
-      <text x="155" y="43" text-anchor="middle" font-size="8.5" fill="#64748b">part 123048</text>
-    </svg>
-    <strong>B. Long flat grey cap (no arrow)</strong>
-    <span>Later RATIONELL (2009–2013) · Flip lever + push tab</span>
-  </button>
-
-  <button class="d-type" data-dtype="d-meta" role="tab" aria-selected="false">
-    <svg viewBox="0 0 220 66" xmlns="http://www.w3.org/2000/svg">
-      <rect x="16" y="16" width="188" height="34" rx="2" fill="#f1f5f9" stroke="#64748b" stroke-width="1.5"/>
-      <rect x="16" y="12" width="14" height="42" fill="#cbd5e1" stroke="#64748b" stroke-width="1.5"/>
-      <circle cx="176" cy="50" r="7" fill="#fff" stroke="#475569" stroke-width="1.6"/>
-      <circle cx="176" cy="50" r="2.2" fill="#475569"/>
-      <rect x="34" y="22" width="20" height="22" rx="2" fill="none" stroke="#3A6EA5" stroke-width="1.5" stroke-dasharray="3 2"/>
-      <circle cx="44" cy="29" r="2.5" fill="#3A6EA5"/>
-      <circle cx="44" cy="38" r="2.5" fill="#3A6EA5"/>
-      <text x="122" y="31" text-anchor="middle" font-size="9" fill="#475569">no side cap</text>
-      <text x="122" y="43" text-anchor="middle" font-size="8.5" fill="#64748b">screws inside</text>
-    </svg>
-    <strong>C. No cap / screws inside</strong>
-    <span>Under-oven (Panel 4) or older Metabox</span>
-  </button>
-</div>
-
-<!-- TYPE B (older default now secondary): Later RATIONELL (2009-2013, AA-509249) -->
-<div id="d-gen2" class="d-pane">
-  <div class="d-steps">
-    <article class="d-step">
-      <div class="d-head"><span class="d-num">1</span><strong>Unhook the top gallery rails</strong><span class="d-tag">Panels 2, 3, 7</span></div>
-      <img class="d-photo" src="img/step-gallery-rail.webp" alt="Sliding the grey plastic collar back on an IKEA RATIONELL gallery rail to detach it from the drawer front" loading="lazy">
-      <div class="d-body">
-        <p>On deep drawers with top metal rods: grip the <strong>grey plastic collar</strong> near the front and <strong>slide it BACK</strong> (toward the rear of the drawer), then pop the rod tip out of the round clip on the front panel.</p>
-        <p>Do both left and right rails. Skip this step on shallow drawers (Panels 1 &amp; 4).</p>
-      </div>
-    </article>
-
-    <article class="d-step is-warn">
-      <div class="d-head"><span class="d-num">2</span><strong>Check underneath the front edge</strong><span class="d-tag">Common trap</span></div>
-      <img class="d-photo" src="img/step-underside-bracket.webp" alt="Unscrewing the metal L-bracket connecting the underside of the drawer floor to the back of the drawer front" loading="lazy">
-      <div class="d-body">
-        <p><strong>#1 reason fronts feel stuck:</strong> wide 60 &amp; 80 cm FAKTUM drawers have <strong>1 or 2 small L-brackets underneath</strong> the drawer floor screwed into the back of the front panel.</p>
-        <p>Tip: lift the whole drawer out onto the worktop first (squeeze the two ribbed paddles underneath the front corners UP and slide off the runners).</p>
-      </div>
-    </article>
-
-    <article class="d-step is-key">
-      <div class="d-head"><span class="d-num">3</span><strong>Pry cap → Flip flap → Push tab</strong><span class="d-tag">Both sides</span></div>
-      <img class="d-photo" src="img/step-type-a-lock.webp" alt="Pried-off cover cap, hinged grey flap flipped open 90 degrees, and finger pushing the inner plastic release tab forward" loading="lazy">
-      <div class="d-body">
-        <p>On the <strong>outside</strong> of both metal sides: pry off the flat grey cover plate (<code>123048</code>) from its rear edge with a flathead screwdriver. Swing the <strong>hinged grey flap open 90°</strong>, then <strong>push the inner plastic tab FORWARD</strong> toward the front panel.</p>
-        <p>Repeat on the opposite side.</p>
-      </div>
-    </article>
-
-    <article class="d-step">
-      <div class="d-head"><span class="d-num">4</span><strong>Pull front straight off &amp; save brackets</strong><span class="d-tag">Reuse hardware</span></div>
-      <img class="d-photo" src="img/step-pull-front.webp" alt="Pulling the detached white drawer front straight away from the metal drawer box, revealing the metal brackets and gallery sockets" loading="lazy">
-      <div class="d-body">
-        <p>Pull the old front <strong>straight forward</strong> off the metal drawer box. Unscrew and keep the <strong>2 metal front-fixing brackets</strong>, round <strong>gallery sockets</strong>, and underside L-brackets to transfer onto your new Faktum UK U12 fronts.</p>
-      </div>
-    </article>
+<div class="card" style="padding:14px 16px">
+  <strong style="font-size:.9rem">Recommended order of attack</strong>
+  <div class="d-order">
+    <div class="d-ord is-first"><strong>1. Test Panel 5 first!</strong>Corner base door (22 mm vs 16 mm old). Verify it clears the adjacent run before swapping the rest.</div>
+    <div class="d-ord"><strong>2. Hinged doors (11×)</strong>Panels 5, 9, 10–18. Clip off, move hinges, clip back on (~2 min/door).</div>
+    <div class="d-ord"><strong>3. Drawers (5×)</strong>Panels 1, 2, 3, 7 (RATIONELL <code>117533</code>) + Panel 4 (under-oven).</div>
+    <div class="d-ord"><strong>4. Dishwasher, fixed &amp; plinths</strong>Panel 8, Panels 6 &amp; 19, and Plinths 20–22 last.</div>
   </div>
 </div>
 
-<!-- TYPE A (CONFIRMED YOUR KITCHEN): RATIONELL 117533 (2005-2011, AA-278555) -->
-<div id="d-gen1" class="d-pane is-on">
+<div class="d-types" role="tablist" aria-label="Panel category">
+  <button class="d-type is-on" data-dtype="g-drawers" role="tab" aria-selected="true">
+    <strong>1. Drawers (1, 2, 3, 7)</strong>
+    <span>RATIONELL part 117533 · 4 drawers</span>
+  </button>
+  <button class="d-type" data-dtype="g-doors" role="tab" aria-selected="false">
+    <strong>2. Hinged doors (5, 9, 10–18)</strong>
+    <span>Clip-on hinges · 11 doors</span>
+  </button>
+  <button class="d-type" data-dtype="g-oven" role="tab" aria-selected="false">
+    <strong>3. Under-oven (4)</strong>
+    <span>60 × 9.5 cm shallow drawer</span>
+  </button>
+  <button class="d-type" data-dtype="g-dw" role="tab" aria-selected="false">
+    <strong>4. Dishwasher (8)</strong>
+    <span>50 × 70 cm integrated door</span>
+  </button>
+  <button class="d-type" data-dtype="g-fixed" role="tab" aria-selected="false">
+    <strong>5. Fixed &amp; Plinths (6, 19, 20–22)</strong>
+    <span>L-brackets + snap-on leg clips</span>
+  </button>
+</div>
+
+<!-- ==================== 1. DRAWERS (PANELS 1, 2, 3, 7) ==================== -->
+<div id="g-drawers" class="d-pane is-on">
+  <img class="d-hero" src="img/step-117533-your-drawer.webp" alt="Annotated photo of your exact IKEA RATIONELL 117533 drawer side showing step 1 rotate front end UP 90 degrees flat like a clock hand, and step 2 pull straight out sideways once vertical">
+
   <div class="d-steps">
     <article class="d-step is-key">
-      <div class="d-head"><span class="d-num">1</span><strong>Rotate front end UP 90° flat → Pull out</strong><span class="d-tag">Both sides</span></div>
-      <img class="d-photo" src="img/step-type-b-flap.webp" alt="Rotating the grey plastic locking plate 90 degrees upward flat against the drawer side and pulling it straight out sideways" loading="lazy">
+      <div class="d-head"><span class="d-num">1</span><strong>Spin BOTH dark-grey plates UP 90° → Pull out</strong><span class="d-tag">Both sides</span></div>
+      <img class="d-photo" src="img/step-type-b-flap.webp" alt="Pulling the grey plastic locking plate with its protruding pin sideways out of the metal drawer side" loading="lazy">
       <div class="d-body">
-        <p>On the <strong>outside</strong> of both metal sides: slide a fingernail under the <strong>front end</strong> of the dark-grey plate (the end with the curved <code>↕</code> arrow) and <strong>rotate it UP 90° flat against the metal side</strong> (like a clock hand) until it stands straight up vertically.</p>
-        <p>Once vertical, <strong>pull the entire plastic plate straight OUT sideways</strong> — its pin only clears the keyhole when pointing straight up. <strong>Don't turn the two silver + / × screws</strong> revealed behind it.</p>
+        <p>Look at the <strong>outside</strong> of both grey metal drawer sides near the front. Slide a fingernail or flathead under the <strong>front edge</strong> of the dark-grey rectangle (<code>117533</code>) and <strong>spin it UP 90° like a clock hand</strong> — staying flat against the metal — until it sticks straight up above the drawer rim.</p>
+        <p>Once vertical, <strong>pull the whole plate straight OUT sideways</strong> (like pulling out a plug). Do the mirror image on the opposite side. <strong>Ignore the two silver + / × screws</strong> behind it — those only adjust alignment.</p>
       </div>
     </article>
 
     <article class="d-step">
-      <div class="d-head"><span class="d-num">2</span><strong>Unhook the top gallery rails</strong><span class="d-tag">Panels 2, 3, 7</span></div>
-      <img class="d-photo" src="img/step-gallery-rail.webp" alt="Sliding the grey plastic collar back on an IKEA RATIONELL gallery rail" loading="lazy">
+      <div class="d-head"><span class="d-num">2</span><strong>Unhook top metal rods</strong><span class="d-tag">Panels 2, 3, 7 only</span></div>
+      <img class="d-photo" src="img/step-gallery-rail.webp" alt="Sliding the grey plastic collar back along the top gallery rail rod to unhook it from the drawer front" loading="lazy">
       <div class="d-body">
-        <p>On deep drawers (skip on Panel 1): slide the <strong>plastic collar</strong> at the front of each top metal rod <strong>BACK</strong> toward the rear of the drawer, then pull the rod back out of the front socket on both sides.</p>
+        <p>Skip on Panel 1 (cutlery drawer). On deep drawers with top metal rods: grip the <strong>grey plastic collar</strong> near the front and <strong>slide it BACK</strong> toward the rear of the drawer, then pull the rod tip out of the round clip on both sides.</p>
       </div>
     </article>
 
     <article class="d-step is-warn">
       <div class="d-head"><span class="d-num">3</span><strong>Check underneath center bottom edge</strong><span class="d-tag">Wide drawers</span></div>
-      <img class="d-photo" src="img/step-underside-bracket.webp" alt="Unscrewing the underside center L-bracket from the drawer front" loading="lazy">
+      <img class="d-photo" src="img/step-underside-bracket.webp" alt="Unscrewing the small metal L-bracket connecting the underside of the drawer floor to the back of the drawer front" loading="lazy">
       <div class="d-body">
-        <p>Check underneath the <strong>middle of the front bottom edge</strong> — if there's a small metal L-bracket (<code>101398</code>) screwed into the back of the drawer front, remove that screw.</p>
-        <p>Tip: to lift this drawer off the cabinet rails first, pull it all the way out and lift the front UP sharply.</p>
+        <p>Look underneath the <strong>middle of the front bottom edge</strong>: if there is a small metal L-bracket (<code>101398</code>) screwed into the back of the front, unscrew it first.</p>
+        <p>Tip: to lift the whole drawer onto the worktop, pull it all the way out and yank the front UP sharply off the runner hooks.</p>
       </div>
     </article>
 
     <article class="d-step">
-      <div class="d-head"><span class="d-num">4</span><strong>Pull front straight off &amp; keep plates</strong><span class="d-tag">Reuse hardware</span></div>
-      <img class="d-photo" src="img/step-pull-front.webp" alt="Pulling the detached white drawer front straight away from the metal drawer box" loading="lazy">
+      <div class="d-head"><span class="d-num">4</span><strong>Slide front off, transfer brackets &amp; lock back</strong><span class="d-tag">Grip on TOP</span></div>
+      <img class="d-photo" src="img/step-pull-front.webp" alt="Pulling the detached white drawer front straight away from the metal drawer box showing the two metal brackets and round gallery sockets" loading="lazy">
       <div class="d-body">
-        <p>Pull the front <strong>straight forward</strong>. Keep the <strong>two grey locking plates (<code>117533</code>)</strong> you pulled out, plus unscrew and save the metal front brackets and rail sockets from the back of the old front to fit onto your new U12 fronts.</p>
+        <p>Pull the old front <strong>straight forward</strong>. Unscrew the <strong>2 metal brackets</strong> + <strong>round gallery sockets</strong> from the old front and screw them into the pre-drilled holes on the new U12 front (<strong>grip on TOP</strong>).</p>
+        <p><strong>To lock the new front on:</strong> push it straight onto the metal sides → push both dark-grey plates (<code>117533</code>) in <strong>pointing straight UP</strong> → <strong>spin them 90° DOWN to horizontal</strong>! Re-hook top rods and slide collars forward. <em>(On Panel 7, discard the old vertical joining straps — your new 80×57 is one solid piece.)</em></p>
       </div>
     </article>
   </div>
+
+  <div class="d-tip">
+    <strong>Aligning drawer gaps afterwards:</strong> Spin a dark-grey plate UP 90° (without pulling it out) to reach the two silver screws — <strong>front <code>+</code> = left/right</strong>, <strong>rear <code>×</code> = up/down</strong>. Twist the top gallery rods themselves to tilt deep fronts in/out.
+  </div>
 </div>
 
-<!-- TYPE C: Metabox / Under-oven (Panel 4) -->
-<div id="d-meta" class="d-pane">
+<!-- ==================== 2. HINGED DOORS (PANELS 5, 9, 10-18) ==================== -->
+<div id="g-doors" class="d-pane">
   <div class="d-steps">
     <article class="d-step is-key">
-      <div class="d-head"><span class="d-num">1</span><strong>Unscrew from the inside behind the front</strong><span class="d-tag">Panel 4 / Metabox</span></div>
-      <img class="d-photo" src="img/step-type-c-metabox.webp" alt="Unscrewing the two Phillips screws through the inside steel flange of a Metabox drawer into the back of the drawer front" loading="lazy">
+      <div class="d-head"><span class="d-num">1</span><strong>Unclip the door — no screwdriver needed</strong><span class="d-tag">11 doors</span></div>
+      <img class="d-photo" src="img/step-hinge-unclip.webp" alt="Finger pressing the hidden spring release tab at the rear tail of an IKEA clip-on cabinet hinge" loading="lazy">
       <div class="d-body">
-        <p>Older FAKTUM / <strong>under-oven drawers (Panel 4)</strong> often use folded steel sides with roller wheels and <strong>no plastic side caps</strong>. Look inside right behind the front panel and unscrew the <strong>2 Phillips wood screws</strong> on each bent metal flange.</p>
+        <p>Open the door. Reach to the very <strong>back tail</strong> of the hinge arm inside the cabinet and <strong>press/lift the little metal release lever</strong> while lifting the hinge arm off the wall mounting plate.</p>
+        <p>Always unclip the <strong>bottom hinge first</strong> while holding the door, then unclip the top hinge so the door never drops.</p>
+      </div>
+    </article>
+
+    <article class="d-step">
+      <div class="d-head"><span class="d-num">2</span><strong>Transfer hinges onto the new U12 door</strong><span class="d-tag">Check grip side!</span></div>
+      <div style="padding:14px;background:var(--sheet);border-bottom:1px solid var(--line)">
+        <svg viewBox="0 0 420 190" xmlns="http://www.w3.org/2000/svg" style="display:block;width:100%;height:auto">
+          <!-- Wall door -->
+          <rect x="24" y="16" width="166" height="148" rx="4" fill="#fff" stroke="#334155" stroke-width="2"/>
+          <rect x="24" y="142" width="166" height="22" rx="2" fill="#dbeafe" stroke="#2563eb" stroke-width="1.6"/>
+          <text x="107" y="157" text-anchor="middle" font-size="11" font-weight="800" fill="#1d4ed8">GRIP AT BOTTOM</text>
+          <circle cx="48" cy="48" r="11" fill="#e2e8f0" stroke="#475569" stroke-width="1.8"/>
+          <circle cx="48" cy="122" r="11" fill="#e2e8f0" stroke="#475569" stroke-width="1.8"/>
+          <text x="116" y="76" text-anchor="middle" font-size="12" font-weight="800" fill="#1e293b">Wall doors</text>
+          <text x="116" y="93" text-anchor="middle" font-size="10.5" fill="#475569">Panels 10–18 (30×92)</text>
+          <text x="116" y="110" text-anchor="middle" font-size="10" fill="#64748b">4 left · 5 right</text>
+          <!-- Base door -->
+          <rect x="230" y="16" width="166" height="148" rx="4" fill="#fff" stroke="#334155" stroke-width="2"/>
+          <rect x="230" y="16" width="166" height="22" rx="2" fill="#fef3c7" stroke="#d97706" stroke-width="1.6"/>
+          <text x="313" y="31" text-anchor="middle" font-size="11" font-weight="800" fill="#b45309">GRIP ON TOP</text>
+          <circle cx="372" cy="64" r="11" fill="#e2e8f0" stroke="#475569" stroke-width="1.8"/>
+          <circle cx="372" cy="136" r="11" fill="#e2e8f0" stroke="#475569" stroke-width="1.8"/>
+          <text x="304" y="88" text-anchor="middle" font-size="12" font-weight="800" fill="#1e293b">Base doors</text>
+          <text x="304" y="105" text-anchor="middle" font-size="10.5" fill="#475569">Panels 5 &amp; 9</text>
+          <text x="304" y="122" text-anchor="middle" font-size="10" fill="#64748b">Both hinge RIGHT</text>
+        </svg>
+      </div>
+      <div class="d-body">
+        <p>Lay old and new doors <strong>face-down</strong> side-by-side on a towel. Unscrew the 2 screws per hinge cup from the old door and screw the cups straight into the pre-drilled 35 mm cups on the new U12 door.</p>
+        <p>Double-check the milled grip edge before tightening! (Leave the wall mounting plates screwed inside the cabinets.)</p>
+      </div>
+    </article>
+
+    <article class="d-step">
+      <div class="d-head"><span class="d-num">3</span><strong>Click new door on &amp; align the 3 screws</strong><span class="d-tag">Alignment</span></div>
+      <div style="padding:14px;background:var(--sheet);border-bottom:1px solid var(--line)">
+        <svg viewBox="0 0 420 155" xmlns="http://www.w3.org/2000/svg" style="display:block;width:100%;height:auto">
+          <!-- Cabinet plate -->
+          <rect x="196" y="28" width="52" height="100" rx="4" fill="#cbd5e1" stroke="#334155" stroke-width="1.8"/>
+          <!-- Hinge arm -->
+          <rect x="92" y="54" width="212" height="48" rx="5" fill="#e2e8f0" stroke="#1e293b" stroke-width="2"/>
+          <!-- Cup left -->
+          <rect x="44" y="34" width="48" height="88" rx="4" fill="#fff" stroke="#334155" stroke-width="1.8"/>
+          <text x="68" y="82" text-anchor="middle" font-size="10" font-weight="700" fill="#475569">DOOR</text>
+          <!-- Top/bottom height screws -->
+          <circle cx="222" cy="42" r="7" fill="#15803d" stroke="#fff" stroke-width="1.5"/>
+          <circle cx="222" cy="114" r="7" fill="#15803d" stroke="#fff" stroke-width="1.5"/>
+          <text x="330" y="36" font-size="11" font-weight="800" fill="#15803d">UP / DOWN</text>
+          <text x="330" y="50" font-size="9.5" fill="#475569">loosen plate screws</text>
+          <line x1="230" y1="42" x2="324" y2="38" stroke="#15803d" stroke-width="1.6"/>
+          <!-- Front screw: left/right -->
+          <circle cx="152" cy="78" r="8" fill="#2563eb" stroke="#fff" stroke-width="1.5"/>
+          <text x="152" y="144" text-anchor="middle" font-size="11" font-weight="800" fill="#1d4ed8">LEFT / RIGHT</text>
+          <line x1="152" y1="88" x2="152" y2="128" stroke="#2563eb" stroke-width="1.8"/>
+          <!-- Rear screw: in/out -->
+          <circle cx="268" cy="78" r="8" fill="#d97706" stroke="#fff" stroke-width="1.5"/>
+          <text x="342" y="96" font-size="11" font-weight="800" fill="#b45309">IN / OUT</text>
+          <text x="342" y="110" font-size="9.5" fill="#475569">gap to carcass</text>
+          <line x1="278" y1="78" x2="336" y2="92" stroke="#d97706" stroke-width="1.6"/>
+        </svg>
+      </div>
+      <div class="d-body">
+        <p>Hook the front hooks of the <strong>top hinge</strong>, then <strong>bottom hinge</strong>, onto the cabinet mounting plates and press the back of each arm until it <strong>CLICKS</strong>.</p>
+        <p>Fine-tune gaps with a Phillips #2: <strong>front screw = left/right</strong>, <strong>rear screw = in/out</strong>, <strong>vertical plate screws = up/down</strong>.</p>
       </div>
     </article>
 
     <article class="d-step is-warn">
-      <div class="d-head"><span class="d-num">2</span><strong>Measure hole positions before tossing old front</strong><span class="d-tag">Before disposal</span></div>
-      <img class="d-photo" src="img/step-pull-front.webp" alt="Back face of detached white drawer front showing bracket positions" loading="lazy">
+      <div class="d-head"><span class="d-num">!</span><strong>Watch Panel 5 &amp; Panel 9 clearances</strong><span class="d-tag">22 mm check</span></div>
       <div class="d-body">
-        <p>Before disposing of old <strong>Panel 4 (60 × 9.5 cm)</strong>, measure and transfer its exact screw coordinates onto the new Faktum UK U12 front.</p>
-        <p>The new U12 front is <strong>22 mm thick</strong> (vs 16 mm old), so the original screws won't poke through — just check they bite cleanly.</p>
+        <p>Your new U12 doors are <strong>22 mm thick</strong> (6 mm thicker than the old 16 mm doors).</p>
+        <p><strong>Panel 5</strong> hinges right into the inside corner and <strong>Panel 9</strong> hinges against the 45° doorway wall. Fit Panel 5 first and swing it open slowly — if it rubs the adjacent run, adjust the <strong>front left/right screw</strong> and <strong>rear in/out screw</strong> to give it an extra 2–3 mm clearance.</p>
       </div>
     </article>
   </div>
 </div>
 
-<div class="card">
-  <h3 style="margin-top:0">Your London kitchen — what to expect on each panel</h3>
-  <div class="d-panels">
-    <div class="d-pbox">
-      <strong>Panel 1</strong>
-      <span class="d-sz">60 × 12.5 cm · top cutlery</span>
-      Shallow drawer — <strong>no gallery rails</strong>. Release both side locks + check underside.
-    </div>
-    <div class="d-pbox is-warn">
-      <strong>Panels 2 &amp; 3</strong>
-      <span class="d-sz">60 × 25.5 &amp; 31 cm · deep</span>
-      Deep drawers: <strong>detach gallery rails</strong> + <strong>underside screw(s)</strong> + both side locks.
-    </div>
-    <div class="d-pbox">
-      <strong>Panel 4</strong>
-      <span class="d-sz">60 × 9.5 cm · under-oven</span>
-      Shallow drawer — check Type A/B or <strong>Type C</strong> (screws on inside metal flanges).
-    </div>
-    <div class="d-pbox is-warn">
-      <strong>Panel 7</strong>
-      <span class="d-sz">80 × 57 cm · sink bin pull-out</span>
-      Old front is two panels (31 + 25.5) joined together. <strong>Detach top rails</strong> + <strong>underside screws</strong> + bottom side locks.
-    </div>
-    <div class="d-pbox is-fixed">
-      <strong>Panel 6 (Fixed!)</strong>
-      <span class="d-sz">80 × 12.5 cm · above bin</span>
-      <strong>NOT a drawer.</strong> Unscrew the fixed L-brackets from inside the sink cabinet.
-    </div>
+<!-- ==================== 3. UNDER-OVEN DRAWER (PANEL 4) ==================== -->
+<div id="g-oven" class="d-pane">
+  <div class="d-steps">
+    <article class="d-step is-key">
+      <div class="d-head"><span class="d-num">1</span><strong>Check inside behind the front</strong><span class="d-tag">Panel 4 · 60×9.5</span></div>
+      <img class="d-photo" src="img/step-type-c-metabox.webp" alt="Unscrewing the two Phillips wood screws through the inside steel flange of a shallow under-oven drawer" loading="lazy">
+      <div class="d-body">
+        <p>First look on the outside of the metal sides: if it has the same dark-grey <code>117533</code> plates as your other drawers, use the <strong>1. Drawers</strong> tab.</p>
+        <p>If it is the shallow IKEA under-oven tray with <strong>no side caps</strong>, look on the <strong>inside</strong> directly behind the front panel and unscrew the <strong>2 Phillips wood screws</strong> on each bent metal flange.</p>
+      </div>
+    </article>
+
+    <article class="d-step is-warn">
+      <div class="d-head"><span class="d-num">2</span><strong>Measure &amp; copy holes BEFORE tossing old front</strong><span class="d-tag">Grip on TOP</span></div>
+      <img class="d-photo" src="img/step-pull-front.webp" alt="Back face of detached white drawer front" loading="lazy">
+      <div class="d-body">
+        <p>Lay old Panel 4 and new Panel 4 (<strong>60 × 9.5 cm, grip on TOP</strong>) face-down side-by-side. Measure the exact distance from the bottom edge and side edges to every screw hole on the old panel and mark them on the new one.</p>
+        <p>Pilot-drill shallow holes (max <strong>12 mm deep</strong>) so you never poke through the 22 mm front.</p>
+      </div>
+    </article>
   </div>
 </div>
 
-<div class="d-tip">
-  <strong>Easier on the worktop:</strong> Take the whole drawer out of the cabinet first so you can flip it upside down to reach the underside bracket screws cleanly. On <strong>Type A</strong>, squeeze the two ribbed paddles under the front corners UP and slide off; on <strong>Type B</strong>, pull all the way out and lift the front UP sharply.
+<!-- ==================== 4. DISHWASHER (PANEL 8) ==================== -->
+<div id="g-dw" class="d-pane">
+  <div class="d-steps">
+    <article class="d-step is-key">
+      <div class="d-head"><span class="d-num">1</span><strong>Unscrew along the inner stainless edges</strong><span class="d-tag">Panel 8 · 50×70</span></div>
+      <img class="d-photo" src="img/step-dishwasher-screws.webp" alt="Hand using a screwdriver on the perimeter screw along the inner stainless steel edge of an open integrated dishwasher door" loading="lazy">
+      <div class="d-body">
+        <p>Open the dishwasher door completely flat. Along the <strong>left and right stainless steel inner edges</strong>, undo the <strong>long perimeter screws</strong> (usually 4–6 screws, Torx T20 or Phillips) that pass through the door into the wooden front.</p>
+        <p><strong>Leave the short screws</strong> near the very top control strip alone. Support the wooden panel with one hand as you undo the final screws — some models also hang on keyhole pegs so slide the panel slightly down/up to lift it free.</p>
+      </div>
+    </article>
+
+    <article class="d-step is-warn">
+      <div class="d-head"><span class="d-num">2</span><strong>Transfer brackets/holes &amp; check door spring</strong><span class="d-tag">14 mm drill stop!</span></div>
+      <div class="d-body">
+        <p>Lay old Panel 8 and new U12 Panel 8 (<strong>50 × 70 cm, grip on TOP</strong>) face-down side-by-side. Transfer any keyhole pegs/brackets at the exact same distances from the top and side edges, and mark every screw hole.</p>
+        <p><strong>Wrap masking tape around your drill bit at 14 mm</strong> as a depth stop before pilot-drilling — never risk drilling through the Alpine White face!</p>
+        <p>Once mounted, test opening the door halfway: 22 mm is slightly heavier than 16 mm, so if the door drops quickly, tighten the spring-tension screws at the bottom front sides of the dishwasher.</p>
+      </div>
+    </article>
+  </div>
 </div>
+
+<!-- ==================== 5. FIXED PANELS & PLINTHS (6, 19, 20-22) ==================== -->
+<div id="g-fixed" class="d-pane">
+  <div class="d-steps">
+    <article class="d-step is-warn">
+      <div class="d-head"><span class="d-num">1</span><strong>Fixed panels 6 &amp; 19 — unscrew from inside</strong><span class="d-tag">No hinges</span></div>
+      <img class="d-photo" src="img/step-underside-bracket.webp" alt="Unscrewing an internal metal L-bracket holding a fixed kitchen panel from behind" loading="lazy">
+      <div class="d-body">
+        <p><strong>Panel 6 (80 × 12.5 cm, top of sink unit — grip on TOP):</strong> Pull out Panel 7 (sink bin), reach inside behind Panel 6, and unscrew the small L-brackets or carcass screws holding it. Align the new Panel 6 flush with the adjacent fronts using 2–3 mm cardboard spacers and screw back from inside (screws ≤ 16 mm).</p>
+        <p><strong>Panel 19 (25 × 92 cm, 45° wall end panel — grip at BASE):</strong> Unscrew from inside the adjacent wall cupboard (Panel 18). Check the 25 cm cut &amp; 45° bevel against the old panel before screwing the new one from inside.</p>
+      </div>
+    </article>
+
+    <article class="d-step is-key">
+      <div class="d-head"><span class="d-num">2</span><strong>Plinths 20, 21 &amp; 22 — pull straight off legs</strong><span class="d-tag">Snap-on clips</span></div>
+      <img class="d-photo" src="img/step-plinth-clips.webp" alt="Pulling a white kitchen plinth straight off black adjustable cabinet legs showing the black C-shaped snap clips on the back" loading="lazy">
+      <div class="d-body">
+        <p>Grab the bottom edge of each old plinth and <strong>pull straight toward you</strong> — IKEA FAKTUM plinths snap onto black plastic <strong>C-clips</strong> clamped around the cabinet legs.</p>
+        <p>Measure the exact clip positions from the ends of each old plinth, slide/screw those C-clips onto the back of the new U12 plinths (20: 190 cm, 21: 141 cm, 22: 42 cm), and <strong>snap straight back onto the legs</strong>. <em>(On Panel 20, tuck the 3 cm short gap into the hidden far corner.)</em></p>
+      </div>
+    </article>
+  </div>
+</div>
+
 </section>
 
 <footer>Faktum UK prices read from faktum.co.uk on 22 September 2026 and not guaranteed.</footer>
@@ -1061,7 +1118,7 @@ start();
       t.setAttribute("aria-selected", on ? "true" : "false");
       document.getElementById(t.getAttribute("aria-controls")).classList.toggle("is-on", on);
     });
-    var frag = {"p-order": "#order", "p-3d": "#3d", "p-drawers": "#drawers"}[id] || "#schema";
+    var frag = {"p-order": "#order", "p-3d": "#3d", "p-drawers": "#install"}[id] || "#schema";
     history.replaceState(null, "", frag);
     document.dispatchEvent(new CustomEvent("tabshow"));
   }
@@ -1071,7 +1128,7 @@ start();
   function syncHash() {
     if (location.hash === "#order") show("p-order");
     else if (location.hash === "#3d") show("p-3d");
-    else if (location.hash === "#drawers") show("p-drawers");
+    else if (location.hash === "#install" || location.hash === "#drawers") show("p-drawers");
     else if (location.hash === "#schema") show("p-schema");
   }
   window.addEventListener("hashchange", syncHash);
@@ -1080,7 +1137,6 @@ start();
   var dbtns = [].slice.call(document.querySelectorAll(".d-type"));
   dbtns.forEach(function (b) {
     b.addEventListener("click", function () {
-      var target = b.getAttribute("data-dtype");
       dbtns.forEach(function (x) {
         var on = x === b;
         x.classList.toggle("is-on", on);
