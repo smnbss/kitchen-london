@@ -44,7 +44,7 @@ a { color:var(--accent); }
 .big { font-size:1.6rem; font-weight:700; letter-spacing:-.02em; }
 .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); gap:14px; }
 .note { border-left:3px solid var(--warn); padding-left:14px; color:var(--muted); font-size:.9rem; }
-.tabs { display:flex; gap:6px; margin:26px 0 4px; border-bottom:1px solid var(--line); }
+.tabs { display:flex; flex-wrap:wrap; gap:6px; margin:26px 0 4px; border-bottom:1px solid var(--line); }
 .tab { appearance:none; background:none; border:0; border-bottom:2px solid transparent;
   color:var(--muted); font:inherit; font-size:.92rem; font-weight:600; letter-spacing:-.01em;
   padding:9px 14px; cursor:pointer; margin-bottom:-1px; }
@@ -53,6 +53,47 @@ a { color:var(--accent); }
 .panel { display:none; }
 .panel.is-on { display:block; }
 .panel > h2:first-child { margin-top:1.4em; }
+.d-types { display:grid; grid-template-columns:repeat(auto-fit,minmax(195px,1fr)); gap:12px; margin:14px 0 18px; }
+.d-type { appearance:none; text-align:left; background:var(--card); border:2px solid var(--line);
+  border-radius:10px; padding:12px; cursor:pointer; font:inherit; color:var(--ink);
+  transition:border-color .15s, box-shadow .15s; }
+.d-type:hover { border-color:var(--accent); }
+.d-type.is-on { border-color:var(--accent); box-shadow:0 0 0 3px color-mix(in srgb, var(--accent) 18%, transparent); }
+.d-type svg { display:block; width:100%; height:62px; background:var(--sheet); border-radius:6px; margin-bottom:8px; }
+.d-type strong { display:block; font-size:.92rem; }
+.d-type span { display:block; font-size:.8rem; color:var(--muted); margin-top:2px; }
+.d-pane { display:none; }
+.d-pane.is-on { display:block; }
+.d-steps { display:grid; grid-template-columns:repeat(auto-fit,minmax(320px,1fr)); gap:16px; margin:12px 0 22px; }
+.d-step { background:var(--card); border:1px solid var(--line); border-radius:10px; overflow:hidden;
+  display:flex; flex-direction:column; }
+.d-step.is-warn { border-color:color-mix(in srgb, var(--warn) 65%, var(--line)); }
+.d-step.is-key { border-color:color-mix(in srgb, var(--accent) 65%, var(--line)); }
+.d-head { display:flex; align-items:center; gap:9px; padding:11px 14px; border-bottom:1px solid var(--line); }
+.d-step.is-warn .d-head { background:color-mix(in srgb, var(--warn) 10%, transparent); }
+.d-step.is-key .d-head { background:color-mix(in srgb, var(--accent) 10%, transparent); }
+.d-num { width:24px; height:24px; border-radius:99px; background:var(--ink); color:var(--card);
+  font-weight:700; font-size:.8rem; display:inline-flex; align-items:center; justify-content:center; flex-shrink:0; }
+.d-step.is-warn .d-num { background:var(--warn); color:#fff; }
+.d-step.is-key .d-num { background:var(--accent); color:#fff; }
+.d-head strong { font-size:.94rem; line-height:1.25; }
+.d-tag { margin-left:auto; font-size:.68rem; font-weight:700; text-transform:uppercase; letter-spacing:.05em;
+  padding:2px 7px; border-radius:99px; border:1px solid var(--line); color:var(--muted); white-space:nowrap; }
+.d-step.is-warn .d-tag { border-color:var(--warn); color:var(--warn); }
+.d-step.is-key .d-tag { border-color:var(--accent); color:var(--accent); }
+.d-photo { display:block; width:100%; aspect-ratio:16/9; object-fit:cover; background:var(--sheet);
+  border-bottom:1px solid var(--line); }
+.d-body { padding:12px 14px 14px; font-size:.89rem; color:var(--ink); }
+.d-body p { margin:0; }
+.d-body p + p { margin-top:7px; color:var(--muted); font-size:.84rem; }
+.d-panels { display:grid; grid-template-columns:repeat(auto-fit,minmax(175px,1fr)); gap:10px; margin-top:12px; }
+.d-pbox { border:1px solid var(--line); border-radius:8px; padding:10px 12px; font-size:.84rem; }
+.d-pbox.is-warn { background:color-mix(in srgb, var(--warn) 8%, transparent); border-color:color-mix(in srgb, var(--warn) 45%, var(--line)); }
+.d-pbox.is-fixed { background:color-mix(in srgb, #c93b3b 8%, transparent); border-color:color-mix(in srgb, #c93b3b 45%, var(--line)); }
+.d-pbox > strong:first-child { display:block; font-size:.92rem; }
+.d-pbox .d-sz { font-size:.76rem; color:var(--muted); margin-bottom:4px; display:block; }
+.d-tip { border-left:3px solid var(--good); padding:10px 14px; background:color-mix(in srgb, var(--good) 8%, transparent);
+  border-radius:0 8px 8px 0; font-size:.89rem; margin:16px 0; }
 @media print { .tabs { display:none; } .panel { display:block !important; } }
 .viewer { background:var(--card); border:1px solid var(--line); border-radius:10px; overflow:hidden; }
 .vbar { display:flex; flex-wrap:wrap; align-items:center; gap:6px; padding:10px 12px;
@@ -84,6 +125,7 @@ is on the Order tab.</p>
   <button class="tab is-on" role="tab" aria-selected="true" aria-controls="p-schema" id="t-schema">Kitchen schema</button>
   <button class="tab" role="tab" aria-selected="false" aria-controls="p-order" id="t-order">Order</button>
   <button class="tab" role="tab" aria-selected="false" aria-controls="p-3d" id="t-3d">3D view</button>
+  <button class="tab" role="tab" aria-selected="false" aria-controls="p-drawers" id="t-drawers">Remove drawer fronts</button>
 </nav>
 
 <section id="p-schema" class="panel is-on" role="tabpanel" aria-labelledby="t-schema">
@@ -819,6 +861,193 @@ start();
 </script>
 </section>
 
+<section id="p-drawers" class="panel" role="tabpanel" aria-labelledby="t-drawers">
+<h2>Removing IKEA FAKTUM drawer fronts</h2>
+<p class="muted">Applies to <strong>Panels 1, 2, 3, 4 and 7</strong>. Pull the drawer out and check the <strong>outside</strong> of the metal drawer side near the front, then pick the matching cap below.</p>
+
+<div class="d-types" role="tablist" aria-label="Drawer hardware type">
+  <button class="d-type is-on" data-dtype="d-gen2" role="tab" aria-selected="true">
+    <svg viewBox="0 0 220 66" xmlns="http://www.w3.org/2000/svg">
+      <rect x="16" y="12" width="188" height="42" rx="3" fill="#dfe6ed" stroke="#64748b" stroke-width="1.5"/>
+      <rect x="16" y="12" width="14" height="42" fill="#cbd5e1" stroke="#64748b" stroke-width="1.5"/>
+      <rect x="38" y="22" width="66" height="22" rx="2.5" fill="#94a3b8" stroke="#1e293b" stroke-width="1.8"/>
+      <text x="71" y="36" text-anchor="middle" font-size="9" font-weight="700" fill="#fff">FLAT CAP</text>
+      <text x="155" y="31" text-anchor="middle" font-size="9" fill="#475569">no arrows</text>
+      <text x="155" y="43" text-anchor="middle" font-size="8.5" fill="#64748b">part 123048</text>
+    </svg>
+    <strong>A. Long flat grey cap</strong>
+    <span>Later RATIONELL (2009–2013) · Flip lever + push tab</span>
+  </button>
+
+  <button class="d-type" data-dtype="d-gen1" role="tab" aria-selected="false">
+    <svg viewBox="0 0 220 66" xmlns="http://www.w3.org/2000/svg">
+      <rect x="16" y="12" width="188" height="42" rx="3" fill="#dfe6ed" stroke="#64748b" stroke-width="1.5"/>
+      <rect x="16" y="12" width="14" height="42" fill="#cbd5e1" stroke="#64748b" stroke-width="1.5"/>
+      <rect x="42" y="19" width="34" height="28" rx="2.5" fill="#94a3b8" stroke="#1e293b" stroke-width="1.8"/>
+      <path d="M49 28 Q59 23 69 28" fill="none" stroke="#fff" stroke-width="1.8"/>
+      <polygon points="47,29 52,25 52,31" fill="#fff"/>
+      <polygon points="71,29 66,25 66,31" fill="#fff"/>
+      <text x="142" y="31" text-anchor="middle" font-size="9" fill="#475569">square flap with ↔</text>
+      <text x="142" y="43" text-anchor="middle" font-size="8.5" fill="#64748b">part 117533</text>
+    </svg>
+    <strong>B. Square flap with ↔ arrow</strong>
+    <span>Earlier RATIONELL (2005–2011) · Pull whole flap out</span>
+  </button>
+
+  <button class="d-type" data-dtype="d-meta" role="tab" aria-selected="false">
+    <svg viewBox="0 0 220 66" xmlns="http://www.w3.org/2000/svg">
+      <rect x="16" y="16" width="188" height="34" rx="2" fill="#f1f5f9" stroke="#64748b" stroke-width="1.5"/>
+      <rect x="16" y="12" width="14" height="42" fill="#cbd5e1" stroke="#64748b" stroke-width="1.5"/>
+      <circle cx="176" cy="50" r="7" fill="#fff" stroke="#475569" stroke-width="1.6"/>
+      <circle cx="176" cy="50" r="2.2" fill="#475569"/>
+      <rect x="34" y="22" width="20" height="22" rx="2" fill="none" stroke="#3A6EA5" stroke-width="1.5" stroke-dasharray="3 2"/>
+      <circle cx="44" cy="29" r="2.5" fill="#3A6EA5"/>
+      <circle cx="44" cy="38" r="2.5" fill="#3A6EA5"/>
+      <text x="122" y="31" text-anchor="middle" font-size="9" fill="#475569">no side cap</text>
+      <text x="122" y="43" text-anchor="middle" font-size="8.5" fill="#64748b">screws inside</text>
+    </svg>
+    <strong>C. No cap / screws inside</strong>
+    <span>Under-oven (Panel 4) or older Metabox</span>
+  </button>
+</div>
+
+<!-- TYPE A: Later RATIONELL (2009-2013, AA-509249) -->
+<div id="d-gen2" class="d-pane is-on">
+  <div class="d-steps">
+    <article class="d-step">
+      <div class="d-head"><span class="d-num">1</span><strong>Unhook the top gallery rails</strong><span class="d-tag">Panels 2, 3, 7</span></div>
+      <img class="d-photo" src="img/step-gallery-rail.webp" alt="Sliding the grey plastic collar back on an IKEA RATIONELL gallery rail to detach it from the drawer front" loading="lazy">
+      <div class="d-body">
+        <p>On deep drawers with top metal rods: grip the <strong>grey plastic collar</strong> near the front and <strong>slide it BACK</strong> (toward the rear of the drawer), then pop the rod tip out of the round clip on the front panel.</p>
+        <p>Do both left and right rails. Skip this step on shallow drawers (Panels 1 &amp; 4).</p>
+      </div>
+    </article>
+
+    <article class="d-step is-warn">
+      <div class="d-head"><span class="d-num">2</span><strong>Check underneath the front edge</strong><span class="d-tag">Common trap</span></div>
+      <img class="d-photo" src="img/step-underside-bracket.webp" alt="Unscrewing the metal L-bracket connecting the underside of the drawer floor to the back of the drawer front" loading="lazy">
+      <div class="d-body">
+        <p><strong>#1 reason fronts feel stuck:</strong> wide 60 &amp; 80 cm FAKTUM drawers have <strong>1 or 2 small L-brackets underneath</strong> the drawer floor screwed into the back of the front panel.</p>
+        <p>Tip: lift the whole drawer out onto the worktop first (squeeze the two ribbed paddles underneath the front corners UP and slide off the runners).</p>
+      </div>
+    </article>
+
+    <article class="d-step is-key">
+      <div class="d-head"><span class="d-num">3</span><strong>Pry cap → Flip flap → Push tab</strong><span class="d-tag">Both sides</span></div>
+      <img class="d-photo" src="img/step-type-a-lock.webp" alt="Pried-off cover cap, hinged grey flap flipped open 90 degrees, and finger pushing the inner plastic release tab forward" loading="lazy">
+      <div class="d-body">
+        <p>On the <strong>outside</strong> of both metal sides: pry off the flat grey cover plate (<code>123048</code>) from its rear edge with a flathead screwdriver. Swing the <strong>hinged grey flap open 90°</strong>, then <strong>push the inner plastic tab FORWARD</strong> toward the front panel.</p>
+        <p>Repeat on the opposite side.</p>
+      </div>
+    </article>
+
+    <article class="d-step">
+      <div class="d-head"><span class="d-num">4</span><strong>Pull front straight off &amp; save brackets</strong><span class="d-tag">Reuse hardware</span></div>
+      <img class="d-photo" src="img/step-pull-front.webp" alt="Pulling the detached white drawer front straight away from the metal drawer box, revealing the metal brackets and gallery sockets" loading="lazy">
+      <div class="d-body">
+        <p>Pull the old front <strong>straight forward</strong> off the metal drawer box. Unscrew and keep the <strong>2 metal front-fixing brackets</strong>, round <strong>gallery sockets</strong>, and underside L-brackets to transfer onto your new Faktum UK U12 fronts.</p>
+      </div>
+    </article>
+  </div>
+</div>
+
+<!-- TYPE B: Earlier RATIONELL (2005-2011, AA-278555) -->
+<div id="d-gen1" class="d-pane">
+  <div class="d-steps">
+    <article class="d-step">
+      <div class="d-head"><span class="d-num">1</span><strong>Unhook the top gallery rails</strong><span class="d-tag">Panels 2, 3, 7</span></div>
+      <img class="d-photo" src="img/step-gallery-rail.webp" alt="Sliding the grey plastic collar back on an IKEA RATIONELL gallery rail" loading="lazy">
+      <div class="d-body">
+        <p>On deep drawers: slide the <strong>plastic collar</strong> at the front of each top metal rod <strong>BACK</strong> toward the rear of the drawer, then pull the rod back out of the front socket on both sides.</p>
+      </div>
+    </article>
+
+    <article class="d-step is-warn">
+      <div class="d-head"><span class="d-num">2</span><strong>Unscrew the center bottom L-bracket</strong><span class="d-tag">Common trap</span></div>
+      <img class="d-photo" src="img/step-underside-bracket.webp" alt="Unscrewing the underside center L-bracket from the drawer front" loading="lazy">
+      <div class="d-body">
+        <p>Look underneath the <strong>middle of the front bottom edge</strong> and remove the horizontal screw holding the L-bracket (<code>101398</code>) into the back of the front panel.</p>
+        <p>Tip: to lift this drawer off the cabinet rails first, pull it all the way out and lift the front UP sharply.</p>
+      </div>
+    </article>
+
+    <article class="d-step is-key">
+      <div class="d-head"><span class="d-num">3</span><strong>Swing flap open → Pull it straight out</strong><span class="d-tag">The key trick</span></div>
+      <img class="d-photo" src="img/step-type-b-flap.webp" alt="Pulling the square grey plastic locking flap with its protruding pin sideways out of the metal drawer side, exposing two adjustment screws" loading="lazy">
+      <div class="d-body">
+        <p>On the <strong>outside</strong> of both metal sides: swing the square grey flap (<code>117533</code>) open 90°, then <strong>pull the entire plastic flap STRAIGHT OUT sideways</strong>. Its pin locks the bracket — once both flaps are out, the front is unlocked.</p>
+        <p><strong>Don't turn the two silver + / × screws</strong> revealed behind it — those only adjust alignment.</p>
+      </div>
+    </article>
+
+    <article class="d-step">
+      <div class="d-head"><span class="d-num">4</span><strong>Pull front straight off &amp; keep flaps</strong><span class="d-tag">Reuse hardware</span></div>
+      <img class="d-photo" src="img/step-pull-front.webp" alt="Pulling the detached white drawer front straight away from the metal drawer box" loading="lazy">
+      <div class="d-body">
+        <p>Pull the front <strong>straight forward</strong>. Keep the <strong>two grey locking flaps (<code>117533</code>)</strong> you pulled out, plus unscrew and save the front brackets and rail sockets from the back of the old front.</p>
+      </div>
+    </article>
+  </div>
+</div>
+
+<!-- TYPE C: Metabox / Under-oven (Panel 4) -->
+<div id="d-meta" class="d-pane">
+  <div class="d-steps">
+    <article class="d-step is-key">
+      <div class="d-head"><span class="d-num">1</span><strong>Unscrew from the inside behind the front</strong><span class="d-tag">Panel 4 / Metabox</span></div>
+      <img class="d-photo" src="img/step-type-c-metabox.webp" alt="Unscrewing the two Phillips screws through the inside steel flange of a Metabox drawer into the back of the drawer front" loading="lazy">
+      <div class="d-body">
+        <p>Older FAKTUM / <strong>under-oven drawers (Panel 4)</strong> often use folded steel sides with roller wheels and <strong>no plastic side caps</strong>. Look inside right behind the front panel and unscrew the <strong>2 Phillips wood screws</strong> on each bent metal flange.</p>
+      </div>
+    </article>
+
+    <article class="d-step is-warn">
+      <div class="d-head"><span class="d-num">2</span><strong>Measure hole positions before tossing old front</strong><span class="d-tag">Before disposal</span></div>
+      <img class="d-photo" src="img/step-pull-front.webp" alt="Back face of detached white drawer front showing bracket positions" loading="lazy">
+      <div class="d-body">
+        <p>Before disposing of old <strong>Panel 4 (60 × 9.5 cm)</strong>, measure and transfer its exact screw coordinates onto the new Faktum UK U12 front.</p>
+        <p>The new U12 front is <strong>22 mm thick</strong> (vs 16 mm old), so the original screws won't poke through — just check they bite cleanly.</p>
+      </div>
+    </article>
+  </div>
+</div>
+
+<div class="card">
+  <h3 style="margin-top:0">Your London kitchen — what to expect on each panel</h3>
+  <div class="d-panels">
+    <div class="d-pbox">
+      <strong>Panel 1</strong>
+      <span class="d-sz">60 × 12.5 cm · top cutlery</span>
+      Shallow drawer — <strong>no gallery rails</strong>. Release both side locks + check underside.
+    </div>
+    <div class="d-pbox is-warn">
+      <strong>Panels 2 &amp; 3</strong>
+      <span class="d-sz">60 × 25.5 &amp; 31 cm · deep</span>
+      Deep drawers: <strong>detach gallery rails</strong> + <strong>underside screw(s)</strong> + both side locks.
+    </div>
+    <div class="d-pbox">
+      <strong>Panel 4</strong>
+      <span class="d-sz">60 × 9.5 cm · under-oven</span>
+      Shallow drawer — check Type A/B or <strong>Type C</strong> (screws on inside metal flanges).
+    </div>
+    <div class="d-pbox is-warn">
+      <strong>Panel 7</strong>
+      <span class="d-sz">80 × 57 cm · sink bin pull-out</span>
+      Old front is two panels (31 + 25.5) joined together. <strong>Detach top rails</strong> + <strong>underside screws</strong> + bottom side locks.
+    </div>
+    <div class="d-pbox is-fixed">
+      <strong>Panel 6 (Fixed!)</strong>
+      <span class="d-sz">80 × 12.5 cm · above bin</span>
+      <strong>NOT a drawer.</strong> Unscrew the fixed L-brackets from inside the sink cabinet.
+    </div>
+  </div>
+</div>
+
+<div class="d-tip">
+  <strong>Easier on the worktop:</strong> Take the whole drawer out of the cabinet first so you can flip it upside down to reach the underside bracket screws cleanly. On <strong>Type A</strong>, squeeze the two ribbed paddles under the front corners UP and slide off; on <strong>Type B</strong>, pull all the way out and lift the front UP sharply.
+</div>
+</section>
+
 <footer>Faktum UK prices read from faktum.co.uk on 22 September 2026 and not guaranteed.</footer>
 
 </div>
@@ -832,15 +1061,34 @@ start();
       t.setAttribute("aria-selected", on ? "true" : "false");
       document.getElementById(t.getAttribute("aria-controls")).classList.toggle("is-on", on);
     });
-    var frag = {"p-order": "#order", "p-3d": "#3d"}[id] || "#schema";
+    var frag = {"p-order": "#order", "p-3d": "#3d", "p-drawers": "#drawers"}[id] || "#schema";
     history.replaceState(null, "", frag);
     document.dispatchEvent(new CustomEvent("tabshow"));
   }
   tabs.forEach(function (t) {
     t.addEventListener("click", function () { show(t.getAttribute("aria-controls")); });
   });
-  if (location.hash === "#order") show("p-order");
-  if (location.hash === "#3d") show("p-3d");
+  function syncHash() {
+    if (location.hash === "#order") show("p-order");
+    else if (location.hash === "#3d") show("p-3d");
+    else if (location.hash === "#drawers") show("p-drawers");
+    else if (location.hash === "#schema") show("p-schema");
+  }
+  window.addEventListener("hashchange", syncHash);
+  syncHash();
+
+  var dbtns = [].slice.call(document.querySelectorAll(".d-type"));
+  dbtns.forEach(function (b) {
+    b.addEventListener("click", function () {
+      var target = b.getAttribute("data-dtype");
+      dbtns.forEach(function (x) {
+        var on = x === b;
+        x.classList.toggle("is-on", on);
+        x.setAttribute("aria-selected", on ? "true" : "false");
+        document.getElementById(x.getAttribute("data-dtype")).classList.toggle("is-on", on);
+      });
+    });
+  });
 })();
 </script>
 </body></html>
